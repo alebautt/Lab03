@@ -301,8 +301,8 @@
                                     <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnBack:" destination="Z7X-L0-4Kr" eventType="touchUpInside" id="e3X-JR-Ma4"/>
-                                    <segue destination="vXZ-lx-hvc" kind="modal" id="vAw-2M-TCC"/>
+                                    <action selector="btnBack:" destination="Z7X-L0-4Kr" eventType="touchUpInside" id="Gl4-Ru-GVX"/>
+                                    <segue destination="6Ld-fB-iJc" kind="modal" id="68z-FM-6vP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mjr-YU-gCh" userLabel="btnImg">
@@ -359,7 +359,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="vAw-2M-TCC"/>
+        <segue reference="68z-FM-6vP"/>
         <segue reference="Ytc-pT-R1z"/>
     </inferredMetricsTieBreakers>
 </document>

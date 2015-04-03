@@ -12,7 +12,7 @@ static NSString    *DBFile = @"contacto.db";
 static const char  *CreateTable  = "create table if not exists datos (id integer primary key autoincrement, nombre text, estado text, video text, imagen blob)";
 static NSString    *insertScores = @"insert into datos (nombre, estado, video, imagen) values (\"%@\",\"%@\",\"%@\",\"%@\")";
 
-static NSString    *updateScores = @"update datos set nombre=\"%@\", estado=\"%@\", video=\"%@\",imagen=\"%@\" where id=\"%@\")";
+static NSString    *updateScores = @"update datos set nombre=\"%@\", estado=\"%@\", video=\"%@\" where id=27)";
 
 static NSString    *DeleteData = @"delete from datos where id=(\"%@\")";
 static ClassDataBase *sharedInstance = nil;
@@ -89,13 +89,17 @@ static sqlite3_stmt   *statement = nil;
 }
 
 
-- (BOOL) updatData: (NSString*) nombre estado:(NSString*) estado video:(NSString*) video imagen:(NSString*) imagen ide:(NSString*) ide;
+- (BOOL) editData: (NSString*) nombre estado:(NSString*) estado video:(NSString*) video imagen:(NSString*) imagen ide:(NSString*) ide;
 {
+    NSLog(@"Entra al metodo edit");
     const char *dbpath = [DBpath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK)
     {
-        NSString *upddatSQL = [NSString stringWithFormat: updateScores, nombre, estado, video, imagen, ide];
-        const char *updat_stmt = [upddatSQL UTF8String];
+        NSLog(@"%@",ide);
+        NSString *upddateSQL = [NSString stringWithFormat: updateScores, nombre, estado, video, ide];
+        NSLog(@"%@", upddateSQL);
+        
+        const char *updat_stmt = [upddateSQL UTF8String];
         sqlite3_prepare_v2(database, updat_stmt,-1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE)
         {

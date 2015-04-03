@@ -58,17 +58,17 @@ NSString *salir;
               imagen:UIImagePNGRepresentation(self.imgPhoto.image)];
 }
 
-
-/*-(void)Updat{
+-(void)Updat{
     BOOL success = NO;
-    success = [[ClassDataBase getSharedInstance]
-               updatData:self.txtName.text
+    success =
+    [[ClassDataBase getSharedInstance]
+            editData:self.txtName.text
                estado:self.txtStatus.text
                video:self.txtVideo.text
-imagen:UIImagePNGRepresentation(self.imgPhoto.image)
-               idee:self.lblId.text];
+     imagen:UIImagePNGRepresentation(self.imgPhoto.image)
+            ide:self.lblId.text];
     
-}*/
+}
 
 - (IBAction)btnSave:(id)sender {
        if([self.txtName.text  isEqual: @""])
@@ -91,7 +91,9 @@ imagen:UIImagePNGRepresentation(self.imgPhoto.image)
                msgAdd = @"Guardado Correctamente";
             }
            if(intFlag==2){
-               NSLog(@"modificado");
+               [self Updat];
+               
+             //  NSLog(@"modificado");
            }
            
            
@@ -176,6 +178,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
    // cell.lblStatus.text = record[RECORD_STATUS];
     //cell.imgPhoto.image = [UIImage imageWithData:record[RECORD_IMAGE]];
     return 0;
+}
+- (IBAction)btnBack:(id)sender {
+    
 }
 
 @end

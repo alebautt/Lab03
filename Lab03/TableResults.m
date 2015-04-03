@@ -13,9 +13,6 @@
 int position=2;
 NSInteger seleccionado;
 
-
-
-
 UIAlertView     *alert;
 NSString *accion;
 NSMutableArray *ref;
@@ -94,10 +91,33 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
         NSLog(@"el nombre es: %@",nom);
     }
     else if(buttonIndex==4){//compartir
-        //[self performSegueWithIdentifier:@"segueMore" sender:self];
+        [self Compartir];
     }
 }
 
+
+-(void)Compartir{
+    NSString                    *strMsg;
+    NSArray                     *activityItems;
+    //  UIImage                     *imgShare;
+    UIActivityViewController    *actVC;
+    
+    //  imgShare = [UIImage imageNamed:@"chavo.png"];
+    strMsg = [self.lblName.text stringByAppendingString: @" fué seleccionado"];
+    
+    activityItems = @[strMsg];
+    
+    //Init activity view controller
+    actVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    actVC.excludedActivityTypes = [NSArray arrayWithObjects:UIActivityTypePrint, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeAirDrop, nil];
+    
+    [self presentViewController:actVC animated:YES completion:nil];
+    
+    
+    
+
+    
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"CellResults";
     CellResults *cell = (CellResults *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];

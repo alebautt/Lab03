@@ -21,7 +21,8 @@ int score;
 -(BOOL)createDB;
 -(BOOL)saveData:(NSString*)nombre estado:(NSString*)estado video:(NSString*)video imagen:(NSString*)imagen;
 -(BOOL)deleteData:(NSString*)ide;
--(BOOL)editData:(NSString*)ide;
+-(BOOL)editData:(NSString*)nombre estado:(NSString*)estado video:
+(NSString*)video imagen:(NSString*)imagen ide:(NSString*)ide;
 
 -(NSArray*) findByRegisterNumber:(NSString*)registerNumber;
 -(NSArray*) allRecords;
